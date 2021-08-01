@@ -1,0 +1,22 @@
+{
+  "name": "nodejs-explore",
+  "version": "1.0.0",
+  "description": "Just exploring nodejs",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/neildobson-au/nodejs-explore.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/neildobson-au/nodejs-explore/issues"
+  },
+  "homepage": "https://github.com/neildobson-au/nodejs-explore#readme",
+  "devDependencies": {
+    "typescript": "^4.3.5"
+  }
+}
