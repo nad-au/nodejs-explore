@@ -1,12 +1,41 @@
-import { Controller, Get } from '@nestjs/common';
-import { AppService } from './app.service';
+import {
+  Body,
+  Controller,
+  Delete,
+  Get,
+  Param,
+  Post,
+  Put,
+} from '@nestjs/common';
+import { ProductService } from './productService';
+import { ProductDto } from './ProductDto';
 
-@Controller()
-export class AppController {
-  constructor(private readonly appService: AppService) {}
+@Controller('products')
+export class ProductsController {
+  constructor(private readonly productService: ProductService) {}
 
-  @Get()
-  getHello(): string {
-    return this.appService.getHello();
+  @Post()
+  create(@Body() product: ProductDto) {
+    this.productService.create(product);
+  }
+
+  @Get('all')
+  getAll(): ProductDto[] {
+    return this.productService.getAll();
+  }
+
+  @Get(':name')
+  getByName(@Param('name') name: string): ProductDto {
+    return this.productService.getByName(name);
+  }
+
+  @Put(':name')
+  update(@Param('name') name: string, @Body() product: ProductDto) {
+    this.productService.update(product);
+  }
+
+  @Delete(':name')
+  deleteByName(@Param('name') name: string) {
+    return this.productService.delete(name);
   }
 }
